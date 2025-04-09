@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocabulary App - Family & Other Relationships</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #6a1b9a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      border-bottom: 5px solid #ab47bc;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .header p {
+      margin: 4px 0;
+      font-size: 15px;
+    }
+    .tagline {
+      background-color: #ec407a;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    h2 {
+      text-align: center;
+      background-color: #8e24aa;
+      color: white;
+      padding: 10px;
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+    .subtitle {
+      text-align: center;
+      background-color: #3949ab;
+      color: #fffde7;
+      padding: 12px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    table {
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-size: 24px;
+    }
+    th {
+      background-color: #7b1fa2;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f3e5f5;
+    }
+    button {
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f4511e;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Super Success Computer Education Center</h1>
+    <p>22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata 700049</p>
+    <p>📞 8017247298 / 9874152080</p>
+  </div>
+
+  <div class="tagline">
+    🎯 ভয় নয়, এবার ইংরেজি শেখা হবে আরও মজার! শব্দ জানুন, উচ্চারণ শুনুন, আর নিজেই অনুশীলন করুন! 🎧📘
+  </div>
+
+  <h2>📘 Common Object Vocabulary For Spoken English </h2>
+
+  <div class="subtitle">01. 👨‍👩‍👧‍👦 Family Relationships (পরিবারের সম্পর্ক)</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>English</th>
+        <th>বাংলা অর্থ 🔊</th>
+        <th>Pronunciation 🔊</th>
+      </tr>
+    </thead>
+    <tbody id="familyTable"></tbody>
+  </table>
+
+  <div class="subtitle">02. 💕 Other Relationships (অন্যান্য সম্পর্ক)</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>English</th>
+        <th>বাংলা অর্থ 🔊</th>
+        <th>Pronunciation 🔊</th>
+      </tr>
+    </thead>
+    <tbody id="relationshipTable"></tbody>
+  </table>
+
+  <div class="subtitle">03. 🧖‍♀️🧖‍♂️ Grocery / Market Items (বাজারে পাওয়া সাধারণ পণ্য)</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>English</th>
+        <th>বাংলা অর্থ 🔊</th>
+        <th>Pronunciation 🔊</th>
+      </tr>
+    </thead>
+    <tbody id="groceryTable"></tbody>
+  </table>
+
+  <div class="subtitle">04. 🛏️🤦‍♀️🤦‍♂️ Bedroom Items (বেডরুমের জিনিসপত্র)</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>English</th>
+        <th>বাংলা অর্থ 🔊</th>
+        <th>Pronunciation 🔊</th>
+      </tr>
+    </thead>
+    <tbody id="bedroomTable"></tbody>
+  </table>
+
+  <script>
+    const familyWords = [
+      ["Mother", "মা", "মা-দার"],
+      ["Parents", "বাবা-মা", "পে-রেন্টস্"],
+      ["Son", "পুত্র / ছেলে", "সান্"],
+      ["Daughter", "কন্যা / মেয়ে", "ড-টর্"],
+      ["Brother", "ভাই", "ব্রা-দার"],
+      ["Sister", "বোন", "সিস-টার"],
+      ["Husband", "স্বামী", "হাস্-ব্যান্ড"],
+      ["Wife", "স্ত্রী", "ওয়াইফ্"],
+      ["Uncle", "চাচা / মামা", "আন-কেল"],
+      ["Aunt", "চাচী / মামি", "আন্ট্"],
+      ["Nephew", "ভাগ্নে / ভাতিজা", "নেফ-ইউ"],
+      ["Niece", "ভাগ্নি / ভাতিজি", "নিস্"],
+      ["Cousin", "চাচাতো ভাই/বোন", "কাঝ-ইন"],
+      ["Grandfather", "দাদা / নানা", "গ্র‍্যান্ড-ফা-দার"],
+      ["Grandmother", "দাদি / নানি", "গ্র‍্যান্ড-মা-দার"],
+      ["Grandson", "নাতি / পৌত্র", "গ্র‍্যান্ড-সান্"],
+      ["Granddaughter", "নাতনি / পৌত্রী", "গ্র‍্যান্ড-ড-টর্"],
+      ["Father-in-law", "শ্বশুর", "ফা-দার-ইন-ল’"],
+      ["Mother-in-law", "শাশুড়ি", "মা-দার-ইন-ল’"],
+      ["Brother-in-law", "দেবর / ভগ্নিপতি", "ব্রা-দার-ইন-ল’"],
+      ["Sister-in-law", "ননদ / ভাশুর", "সিস-টার-ইন-ল’"]
+    ];
+
+    const relationshipWords = [
+      ["Friend", "বন্ধু", "ফ্রেন্ড"],
+      ["Best friend", "ঘনিষ্ঠ বন্ধু", "বেস্ট ফ্রেন্ড"],
+      ["Boyfriend", "প্রেমিক", "বয়-ফ্রেন্ড"],
+      ["Girlfriend", "প্রেমিকা", "গার্ল-ফ্রেন্ড"],
+      ["Fiancé (M)", "বাগদত্ত (পুরুষ)", "ফি-অ্যান-সে"],
+      ["Fiancée (F)", "বাগদত্তা (মহিলা)", "ফি-অ্যান-সেই"],
+      ["Partner", "সঙ্গী", "পার্ট-নার"],
+      ["Neighbor", "প্রতিবেশী", "নে-বর্"],
+      ["Classmate", "সহপাঠী", "ক্লাস-মেট"],
+      ["Colleague", "সহকর্মী", "কা-লিগ"],
+      ["Roommate", "রুমমেট / সহকক্ষবাসী", "রুম-মেট"],
+      ["Teacher", "শিক্ষক / শিক্ষিকা", "টি-চার"],
+      ["Student", "ছাত্র / ছাত্রী", "স্টু-ডেন্ট"]
+    ];
+
+    const groceryWords = [
+      ["Rice", "চাল", "রাইস"],
+      ["Lentils", "ডাল", "লেন-টিলস"],
+      ["Oil", "তেল", "অয়েল"],
+      ["Salt", "লবণ", "সল্ট"],
+      ["Sugar", "চিনি", "শু-গার"],
+      ["Vegetables", "সবজি", "ভেজ-টা-বলস"],
+      ["Fruits", "ফল", "ফ্রুটস"],
+      ["Egg", "ডিম", "এগ"],
+      ["Fish", "মাছ", "ফিশ"],
+      ["Meat", "মাংস", "মিট"],
+      ["Milk", "দুধ", "মিল্ক"],
+      ["Bread", "রুটি / পাউরুটি", "ব্রেড"]
+    ];
+
+    const bedroomWords = [
+      ["Bed", "খাট / বিছানা", "বেড"],
+      ["Pillow", "বালিশ", "পি-লো"],
+      ["Blanket", "কম্বল", "ব্ল্যাং-কেট"],
+      ["Bedsheet", "চাদর", "বেড-শিট"],
+      ["Wardrobe", "আলমারি", "ওয়ার্ড-রোব"],
+      ["Lamp", "বাতি / ল্যাম্প", "ল্যাম্প"],
+      ["Mattress", "গদি / ম্যাট্রেস", "ম্যাট-ট্রেস"],
+      ["Hanger", "হ্যাঙ্গার", "হ্যাং-গার"],
+      ["Clock", "ঘড়ি", "ক্লক"],
+      ["Slippers", "চটি / স্লিপার", "স্লি-পার"]
+    ];
+
+    const familyTable = document.getElementById("familyTable");
+    const relationshipTable = document.getElementById("relationshipTable");
+    const groceryTable = document.getElementById("groceryTable");
+    const bedroomTable = document.getElementById("bedroomTable");
+
+    function renderTable(data, table) {
+      data.forEach((word, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${word[0]}</td>
+          <td>${word[1]} <button onclick="speak('${word[1]}', 'bn-IN')">🔊</button></td>
+          <td>${word[2]} <button onclick="speak('${word[0]}', 'en-US')">🔊</button></td>
+        `;
+        table.appendChild(row);
+      });
+    }
+
+    renderTable(familyWords, familyTable);
+    renderTable(relationshipWords, relationshipTable);
+    renderTable(groceryWords, groceryTable);
+    renderTable(bedroomWords, bedroomTable);
+
+    function speak(text, lang) {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = lang;
+      speechSynthesis.speak(utter);
+    }
+  </script>
+<h2> 🗣️ উচ্চারণ অনুশীলন টিপস:<br>
+01. প্রতিটি শব্দ ৫ বার করে উচ্চারণ করুন।<br>
+
+02. বাংলার পাশে ইংরেজি শব্দ দেখুন, শুনে অনুকরণ করুন।<br>
+
+03. নিজে নিজে ছোটো সংলাপ তৈরী করুন আর বলুন। </h2>
+</body>
+</html>
